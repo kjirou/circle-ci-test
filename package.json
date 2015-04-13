@@ -1,0 +1,24 @@
+{
+  "name": "circle-ci-test",
+  "version": "1.0.0",
+  "author": "kjirou",
+  "bugs": {
+    "url": "https://github.com/kjirou/circle-ci-test/issues"
+  },
+  "dependencies": {
+    "http-server": "0.8.0"
+  },
+  "devDependencies": {
+    "fixpack": "2.2.0"
+  },
+  "homepage": "https://github.com/kjirou/circle-ci-test",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kjirou/circle-ci-test.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
