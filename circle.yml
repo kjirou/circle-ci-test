@@ -1,0 +1,10 @@
+machine:
+  node:
+    version: 0.10.35
+
+test:
+  override:
+    - npm start:
+        background: true
+    - sleep 2
+    - npm test
