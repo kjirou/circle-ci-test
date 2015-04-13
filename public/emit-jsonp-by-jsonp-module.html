@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>emit-jsonp-by-jsonp-module</title>
+    <script src='jsonp.js'></script>
+    <script>
+      var BASE_URL = 'http://localhost:8080';
+      var jsonpCallback = function(json) {
+      };
+    </script>
+  </head>
+  <body>
+    <h1>emit-jsonp-by-jsonp-module</h1>
+    <div id='debug'></div>
+    <script>
+      jsonp(BASE_URL + '/jsonp-apis/jsonp1.js', function(json) {
+        var $debug = document.getElementById('debug');
+        var $message = document.createElement('div');
+        $message.appendChild(document.createTextNode(json.status + ': ' + json.message));
+        $debug.appendChild($message);
+      });
+    </script>
+  </body>
+</html>

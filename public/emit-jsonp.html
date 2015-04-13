@@ -17,7 +17,7 @@
     <script>
       var requestAsJsonp = function() {
         var $script = document.createElement('script');
-        $script.src = BASE_URL + '/jsonp-emitter.js';
+        $script.src = BASE_URL + '/jsonp-apis/jsonpCallback.js';
         document.body.appendChild($script);
       };
       setTimeout(requestAsJsonp, 500);
