@@ -29,10 +29,22 @@ describe('jsonp', function() {
     return driver
       .get(this.pageUrl)
       .then(function() {
+        return driver.sleep(1000);
+      })
+      .then(function() {
         return driver.getCurrentUrl();
       })
       .then(function(url) {
-        assert.equal(url, self.pageUrl);
+        assert.strictEqual(url, self.pageUrl);
+      })
+      .then(function(url) {
+        return driver.findElement(webdriver.By.id('debug'));
+      })
+      .then(function(el) {
+        return el.getInnerHtml();
+      })
+      .then(function(src) {
+        assert(/jsonp success/.test(src));
       })
     ;
   });
