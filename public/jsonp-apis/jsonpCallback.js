@@ -1,1 +1,1 @@
-jsonpCallback({ status: 200, message: 'jsonp success' });
+jsonpCallback({ status: 200, message: 'jsonpCallback success' });

@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "http-server": "0.8.0",
-    "jsonp": "git://github.com/nashibao/jsonp.git#master",
     "mocha": "2.2.4",
     "selenium-webdriver": "2.44.0"
   },

@@ -9,8 +9,7 @@ describe('jsonp', function() {
 
   var driver;
 
-  before(function() {
-    this.pageUrl = BASE_URL + '/emit-jsonp.html';
+  beforeEach(function() {
     driver = new webdriver.Builder()
       .withCapabilities(webdriver.Capabilities.chrome())
       .build()
@@ -20,14 +19,14 @@ describe('jsonp', function() {
     //return driver.getWindowHandle();
   });
 
-  after(function() {
+  afterEach(function() {
     return driver.quit();
   });
 
-  it('should emit jsonp', function() {
-    var self = this;
+  it('should run emit-jsonp.html', function() {
+    var pageUrl = BASE_URL + '/emit-jsonp.html';
     return driver
-      .get(this.pageUrl)
+      .get(pageUrl)
       .then(function() {
         return driver.sleep(1000);
       })
@@ -35,7 +34,7 @@ describe('jsonp', function() {
         return driver.getCurrentUrl();
       })
       .then(function(url) {
-        assert.strictEqual(url, self.pageUrl);
+        assert.strictEqual(url, pageUrl);
       })
       .then(function(url) {
         return driver.findElement(webdriver.By.id('debug'));
@@ -44,7 +43,32 @@ describe('jsonp', function() {
         return el.getInnerHtml();
       })
       .then(function(src) {
-        assert(/jsonp success/.test(src));
+        assert(/jsonpCallback success/.test(src));
+      })
+    ;
+  });
+
+  it('should run emit-jsonp-by-jsonp-module.html', function() {
+    var pageUrl = BASE_URL + '/emit-jsonp-by-jsonp-module.html';
+    return driver
+      .get(pageUrl)
+      .then(function() {
+        return driver.sleep(1000);
+      })
+      .then(function() {
+        return driver.getCurrentUrl();
+      })
+      .then(function(url) {
+        assert.strictEqual(url, pageUrl);
+      })
+      .then(function(url) {
+        return driver.findElement(webdriver.By.id('debug'));
+      })
+      .then(function(el) {
+        return el.getInnerHtml();
+      })
+      .then(function(src) {
+        assert(/jsonp1 success/.test(src));
       })
     ;
   });
