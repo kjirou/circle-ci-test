@@ -14,11 +14,13 @@
   "homepage": "https://github.com/kjirou/circle-ci-test",
   "license": "MIT",
   "main": "index.js",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/kjirou/circle-ci-test.git"
   },
   "scripts": {
+    "start": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
