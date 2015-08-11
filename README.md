@@ -18,4 +18,4 @@ npm test
 mocha 側をダウングレードさせても変わらない 
 一方で `selenium-webdriver@2.44.0` へ下げたら動いた
 
-原因がどちらかは未調査、そして未報告
+原因たぶんこれ: https://github.com/SeleniumHQ/selenium/issues/363
